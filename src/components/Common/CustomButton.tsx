@@ -14,7 +14,7 @@ export default function CustomButton({ title, link }: CustomButtonProps) {
         <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 text-sm font-medium cursor-pointer"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 font-medium cursor-pointer"
             onClick={() => router.push(link)}
         >
             {title}
