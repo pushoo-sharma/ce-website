@@ -2,9 +2,9 @@
 import { Providers } from "./providers";
 import { Footer } from "@/components/ui/large-name-footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import Header from "@/components/Header";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../styles/index.css";
+import Navbar from "@/components/Common/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"], 
@@ -25,11 +25,12 @@ export default function RootLayout({
 
       <body className={`${poppins.variable}`}>
         <Providers>
-          <Header />
+          <Navbar />
           {children}
           <Footer />
           <ScrollToTop />
         </Providers>
+        <script src=" https://hoox.s3.us-east-1.amazonaws.com/6286884918483e7d-www.classyendeavors.com-hoox.js" async></script>
       </body>
     </html>
   );

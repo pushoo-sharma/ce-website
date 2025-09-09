@@ -1,30 +1,11 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ExternalLink } from "lucide-react";
-
-
-const staggerWords = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.25,
-    },
-  },
-};
-
-const wordFadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-};
+import { useRouter } from "next/navigation";
 
 type HeroProps = {
   title: string;
@@ -48,7 +29,7 @@ export const Hero = ({
   services,
   section
 }: HeroProps) => {
-
+  const router = useRouter()
   return (
     <section
       id="home"
@@ -71,28 +52,14 @@ export const Hero = ({
             <div
               className="mx-auto max-w-[900px] text-white"
             >
-              {keywords && keywords.length > 0 && (
-                <motion.div
-                  variants={staggerWords}
-                  initial="hidden"
-                  whileInView="visible"
-                  className="mb-6 flex gap-3 text-[13.5px] font-bold tracking-widest uppercase"
-                >
-                  {keywords.map((word, idx) => (
-                    <span key={idx}>
-                      {word}
-                    </span>
-                  ))}
-                </motion.div>
-              )}
-              <motion.h1
+              <motion.h2
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className={cn("mb-6 max-w-2xl text-3xl leading-tight font-semibold md:text-4xl", titleStyles)}
               >
                 {title}
-              </motion.h1>
+              </motion.h2>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -102,7 +69,8 @@ export const Hero = ({
               >
                 {subtitle}
               </motion.p>
-              <Button className="bg-background hover:bg-background rounded-full text-foreground p-6">Get Started
+              <Button className="bg-background hover:bg-background rounded-full text-foreground p-6 cursor-pointer" onClick={() => router.push("#contact")}
+              >Get Started
                 <span>
                   <ExternalLink className="size-4" />
                 </span>

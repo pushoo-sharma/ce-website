@@ -6,6 +6,16 @@ export type Industry ={
   description?: string;
   icon: string;
 }
+export type ServiceIndustry = {
+  quote: string;
+  quoteKey: string;
+  name: string;
+  nameKey: string;
+  designation: string;
+  src: string;
+  services: string[];
+  servicesKeys: string[];
+}
 export type Author = {
   name: string;
   image: string;
@@ -70,12 +80,10 @@ export type TeamMember  = {
 }
 
 export type Testimonial = {
-    name: string;
-    description: string;
-    body: string;
-    img: string;
-    descriptionKey: string;
-    bodyKey: string;
+    rating: number;
+    text: string;
+    author: string;
+    position: string;
 };
 
 export type WhyUsData = {
@@ -91,7 +99,26 @@ export type Processes = {
 }
 
 export type ServicesFeatures = {
-  value: string;
-  label: string;
-  icon:  string;
+  image?: string;
+  title: string;
+  description: string;
+}
+
+export type CaseStudy = {
+  title: string;
+  image: string;
+  categories: string[];
+}
+
+export type BlogPost = {
+  title: string;
+  date: string;
+  image: string;
+  href: string;
+  description: string;
+}
+
+export type FaqData = {
+  question: string;
+  answer: string;
 }

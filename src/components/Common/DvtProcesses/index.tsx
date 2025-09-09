@@ -3,6 +3,8 @@
 import { JSX, useRef } from 'react';
 import { motion, useScroll, useTransform, MotionValue } from 'motion/react';
 import Image from 'next/image';
+import SectionTitle from '../SectionTitle';
+import Section from '@/components/Section';
 
 const projects = [
   {
@@ -46,10 +48,8 @@ export default function Index(): JSX.Element {
 
   return (
     <main ref={containerRef}>
-      <section className="relative max-w-7xl mx-auto px-6 pt-20">
-        <h1 className="mb-8 text-center text-3xl font-semibold">
-          Cloud Development Process
-        </h1>
+      <Section>
+        <SectionTitle title="Cloud Development Process" className="text-center" />
         {projects.map((project, i) => {
           const scale = 1 - (projects.length - i) * 0.05;
           return (
@@ -62,7 +62,7 @@ export default function Index(): JSX.Element {
               {...project} />
           );
         })}
-      </section>
+      </Section>
     </main>
   );
 }
@@ -111,7 +111,7 @@ export const Card: React.FC<CardProps> = ({
 
         <div className="flex flex-wrap md:flex-nowrap mt-5 gap-10">
           <div className="w-full md:w-[40%]">
-            <h1 className="text-4xl md:text-5xl font-bold text-muted-foreground/20 mb-4">0{i + 1}</h1>
+            <h2 className="text-4xl md:text-5xl font-bold text-muted-foreground/20 mb-4">0{i + 1}</h2>
             <h2 className="text-2xl text-start font-semibold mb-4">{title}</h2>
             <p className="text-sm">{description}</p>
           </div>

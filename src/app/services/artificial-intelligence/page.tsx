@@ -1,14 +1,17 @@
 import React from "react";
 import { Metadata } from "next";
 import { Hero } from "@/components/Common/ServicesHero";
-import { Bot, Brain, Clock } from "lucide-react";
-import Services from "./components/Services";
-import Industries from "@/components/Common/Industries/Industries";
-import Banner from "@/components/Common/Banner";
-import { softwareDevFeatures } from "@/components/Common/ServiceFeatures/data";
-import ServiceFeatures from "@/components/Common/ServiceFeatures/ServiceFeatures";
-import ServiceContactForm from "@/components/Common/ServiceContactForm";
-import Statistics from "@/app/(home)/components/Statistics";
+import { aiServices } from "@/components/Common/ServiceFeatures/serviceFeaturesData";
+import ServiceFeatures from "@/components/Common/ServiceFeatures";
+import FAQ from "@/components/Common/FAQ/FAQ";
+import { aiFaqs } from "@/components/Common/FAQ/faqData";
+import ServiceIndustries from "@/components/Common/ServiceIndustries";
+import { industries } from "@/components/Common/ServiceIndustries/serviceIndustriesData";
+import { Solutions } from "./components/Solutions";
+import ContactUs from "@/components/ContactUs";
+import { aiTestimonials } from "@/components/ContactUs/testimonialsData";
+import { Process } from "./components/Process";
+import Steps from "./components/Step";
 
 export const metadata: Metadata = {
   title: "Services - Artificial Intelligence",
@@ -23,21 +26,6 @@ export const metadata: Metadata = {
     "Explore our cutting-edge Artificial Intelligence services, including machine learning, deep learning, and AI solutions tailored to your business needs.",
 };
 
-const aiChars = [
-  {
-    label: "No More Repetitive Tasks.",
-    icon: <Brain className="h-6 w-6 stroke-2" />,
-  },
-  {
-    label: "Smarter Decision-Making",
-    icon: <Bot className="h-6 w-6 stroke-2" />,
-  },
-  {
-    label: "24/7 Availability",
-    icon: <Clock className="h-6 w-6 stroke-2" />,
-  },
-];
-
 const ArtificialIntelligence = () => {
   return (
     <>
@@ -45,19 +33,14 @@ const ArtificialIntelligence = () => {
         title="Boost Your Business with Agentic AI"
         subtitle="Harness the transformative power of Artificial Intelligence to optimize workflows, personalize user experiences, and automate operations. At Classy Endeavors, we design and deliver custom AI solutions that make businesses smarter, faster, and more scalable."
         backgroundImage="/images/services/AIBackground.svg"
-        keywords={["Smart AI.", "Real Actions.", "Constant Growth"]}
-        services={aiChars}
-        section={<ServiceContactForm />}
       />
-      <Services />
-      <ServiceFeatures title="Software Development Features" serviceFeatures={softwareDevFeatures} />
-      <Industries />
-      <Statistics />
-      <Banner
-        title="Build the Future with Agentic AI"
-        description="Let’s design a unique mobile application that stands out! Click ‘Get Started’ to book a free consultation with our development team and take the first step toward innovation."
-        buttonText="Get your project developed"
-      />
+      <ServiceFeatures title="What We Offer" features={aiServices} />
+      <Solutions />
+      <Process />
+      <Steps />
+      <ServiceIndustries title="Industries we serve" industries={industries} />
+      <FAQ faqs={aiFaqs} bannerTitle="Lead the Market with AI Today!" bannerDesc="AI isn’t the future, it’s the now. Let’s create intelligent solutions that put your business ahead of the curve." bannerCTA="Talk to Our Experts"  />      
+      <ContactUs testimonials={aiTestimonials} />
     </>
   );
 };
