@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   verification: {
-    google: "YTySBTTEwElmxCR9c2x0ZbdHrrmEcWBLcyLMsm3ekFE"
+    google: "Hz-hzNiyCaTNP8nKYrwBsXnQvfdvVv4gzWStZUaYP8U"
   }
 };
 const poppins = Poppins({
